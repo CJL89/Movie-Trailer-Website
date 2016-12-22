@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Project Stage 03!</title>
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        # trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+            height: 725px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Movie Trailer Project Stage 03</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="16RZHqCIy9M" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/7/7c/Vitaebella.jpg" width="220" height="342">
+    <h2>Life Is Beautiful</h2>
+    <ul style = "list-style-type: none">
+        <li>Benigni's earnest charm, when not overstepping its bounds into the unnecessarily treacly, offers the possibility of hope in the face of unflinching horror.</li>
+        <li>PG-13</li>
+        <li>Drama & Commedy</li>
+        <li>Roberto Benigni</li>
+        <li>Roberto Benigni & Vincenzo Cerami</li>
+        <li>2 hr. 2 min.</li>
+        <li>Roberto Benigni as Guido Orefice, Nicoletta Braschi as Dora, Giorgio Cantarini as Giosue, Giustino Durano as Uncle Eliseo</li>
+        <li>http://www.rottentomatoes.com/m/1084398-life_is_beautiful/reviews/</li>
+    </ul>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="R_F-lVhSfx8" data-toggle="modal" data-target="#trailer">
+    <img src="http://t2.gstatic.com/images?q=tbn:ANd9GcSK3LiV9aI4uMtI91ZJjDM15AazxWB5uKkxV8D04NARj2sJdBOG" width="220" height="342">
+    <h2>Black Mass</h2>
+    <ul style = "list-style-type: none">
+        <li>Black Mass spins a gripping yarn out of its fact-based story -- and leaves audiences with one of Johnny Depp's most compelling performances in years.</li>
+        <li>R</li>
+        <li>Drama</li>
+        <li>Scott Cooper</li>
+        <li>Mark Mallouk & Jez Butterworth</li>
+        <li>2 hr. 2 min.</li>
+        <li>Johnny Depp as Whitey Bulger, Benedict Cumberbatch as William Bulger, Joel Edgerton as John Connolly, Jesse Plemons as Kevin Weeks</li>
+        <li>http://www.rottentomatoes.com/m/black_mass_2015/reviews/</li>
+    </ul>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="sR0SDT2GeFg" data-toggle="modal" data-target="#trailer">
+    <img src="http://t3.gstatic.com/images?q=tbn:ANd9GcT4oUDoLOJuqZNW-rZGnc4TquZoOKcNmkwCgDzikSL6enj4XH7R" width="220" height="342">
+    <h2>Sicario</h2>
+    <ul style = "list-style-type: none">
+        <li>Led by outstanding work from Emily Blunt and Benicio del Toro, Sicario is a taut, tightly wound thriller with much more on its mind than attention-getting set pieces.</li>
+        <li>R</li>
+        <li>Drama & Action</li>
+        <li>Denis Villeneuve</li>
+        <li>Taylor Sheridan</li>
+        <li>2 hr.</li>
+        <li>Emily Blunt as Kate Macy, Jon Bernthal as Ted, Josh Brolin as Matt, Benicio Del Toro as Alejandro</li>
+        <li>http://www.rottentomatoes.com/m/sicario_2015/reviews/</li>
+    </ul>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="fZ_JOBCLF-I" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/1/10/The_Lego_Movie_poster.jpg" width="220" height="342">
+    <h2>The Lego Movie</h2>
+    <ul style = "list-style-type: none">
+        <li>Boasting beautiful animation, a charming voice cast, laugh-a-minute gags, and a surprisingly thoughtful story, The Lego Movie is colorful fun for all ages.</li>
+        <li>PG</li>
+        <li>Action, Animation & Comedy</li>
+        <li>Phil Lord, Christopher Miller & Chris McKay</li>
+        <li>Dan Hageman, Chris Miller, Kevin Hageman, Roy Lee & Christopher Miller</li>
+        <li>1 hr. 41 min.</li>
+        <li>Chris Pratt as Emmet, Elizabeth Banks as Wyldstyle/Lucy, Will Arnett as Batman, Morgan Freeman as Vitruvius</li>
+        <li>http://www.rottentomatoes.com/m/the_lego_movie/reviews/</li>
+    </ul>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="6kw1UVovByw" data-toggle="modal" data-target="#trailer">
+    <img src="http://t2.gstatic.com/images?q=tbn:ANd9GcTSNSk0M1z_CZ1UKTnfE2nHmk4Oxqh_gKO0dAHZHwrfLX6D9Y4s" width="220" height="342">
+    <h2>007: Skyfall</h2>
+    <ul style = "list-style-type: none">
+        <li>Sam Mendes brings Bond surging back with a smart, sexy, riveting action thriller that qualifies as one of the best 007 films to date.</li>
+        <li>PG-13</li>
+        <li>Action</li>
+        <li>Sam Mendes</li>
+        <li>Ian Fleming, John Logan, Robert Wade & Neal Purvis</li>
+        <li>2 hr. 25 min.</li>
+        <li>Daniel Craig as James Bond, Javier Bardem as Silva, Judi Dench as M, Naomie Harris as Eve</li>
+        <li>http://www.rottentomatoes.com/m/skyfall/reviews/</li>
+    </ul>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="XiGwAvd5mvM" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/3/37/Citizenfour_poster.jpg" width="220" height="342">
+    <h2>Citizenfour</h2>
+    <ul style = "list-style-type: none">
+        <li>Part real-life thriller, part sobering examination of 21st century civil liberties, Citizenfour transcends ideology to offer riveting, must-see cinema.</li>
+        <li>R</li>
+        <li>Documentary</li>
+        <li>Laura Poitras</li>
+        <li>N/A</li>
+        <li>1 hr. 54 min.</li>
+        <li>Edward Snowden, Glenn Greenwald, William Binney, Jacob Appelbaum</li>
+        <li>http://www.rottentomatoes.com/m/citizenfour/reviews/</li>
+    </ul>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="OiTiKOy59o4" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/f/f6/Gravity_Poster.jpg" width="220" height="342">
+    <h2>Gravity</h2>
+    <ul style = "list-style-type: none">
+        <li>Alfonso Cuaron's Gravity is an eerie, tense sci-fi thriller that's masterfully directed and visually stunning.</li>
+        <li>PG-13</li>
+        <li>Drama, Sci-Fi</li>
+        <li>Alfonso Cuaron</li>
+        <li>Alfonso Cuaron & Jonas Cuaron</li>
+        <li>1 hr. 31 min.</li>
+        <li>Sandra Bullock as as Dr. Ryan Stone, Georgo Clooney as Matt Kowalski, Orto Ignatiussen as Aningaaq Voice, Phaldut Sharma as Shariff Voice</li>
+        <li>http://www.rottentomatoes.com/m/gravity_2013/reviews/</li>
+    </ul>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="7d_jQycdQGo" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/01/Whiplash_poster.jpg" width="220" height="342">
+    <h2>Whiplash</h2>
+    <ul style = "list-style-type: none">
+        <li>Intense, inspiring, and well-acted, Whiplash is a brilliant sophomore effort from director Damien Chazelle and a riveting vehicle for stars J.K. Simmons and Miles Teller.</li>
+        <li>R</li>
+        <li>Drama</li>
+        <li>Damien Chazelle</li>
+        <li>Damien Chazelle</li>
+        <li>1 hr. 46 min.</li>
+        <li>Miles Teller as Andrew Neyman, J.K. Simmons as Terence Fletcher, Melissa Benoist as Nicole, Paul Reiser as Jim.</li>
+        <li>http://www.rottentomatoes.com/m/whiplash_2014/reviews/</li>
+    </ul>
+</div>
+
+    </div>
+  </body>
+</html>
