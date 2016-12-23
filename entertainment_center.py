@@ -99,11 +99,9 @@ whiplash = media.Movies("Whiplash",
                         "https://upload.wikimedia.org/wikipedia/en/0/01/Whiplash_poster.jpg",
                         "https://youtu.be/7d_jQycdQGo")
 
-# 
-#    The format that I followed is from rottentomatoes.com, as well as the descriptions, genre, etc. 
 #
-
-
+#    The format that I followed is from rottentomatoes.com, as well as the descriptions, genre, etc.
+#
 
 # Variable of all the movies:
 movies = [life_is_beautiful, black_mass, sicario, the_lego_movie, skyfall, citizenfour, gravity, whiplash]
@@ -111,16 +109,3 @@ movies = [life_is_beautiful, black_mass, sicario, the_lego_movie, skyfall, citiz
 
 # Initializer that opens the webpage with all the movies found in the variable.
 fresh_tomatoes.open_movies_page(movies)
-
-
-
-
-
-
-
-
-
-
-
-
-
